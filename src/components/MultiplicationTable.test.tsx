@@ -22,6 +22,7 @@ describe("MultiplicationTable", () => {
 
     // 6. Verificar que se generó el resultado correcto (ejemplo: 5 × 1 = 5)
     expect(screen.getByText("5 × 1 = 5")).toBeInTheDocument();
+    expect(screen.getByText("5 × 2 = 10")).toBeInTheDocument();
     expect(screen.getByText("5 × 10 = 50")).toBeInTheDocument();
   });
 
