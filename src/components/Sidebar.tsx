@@ -11,10 +11,10 @@ import {
   FaKey,
   FaMouse,
   FaList,
-  FaClock, // ⏰ Agregamos ícono para el reloj
-  FaPalette, // 🎨 Selector de colores
-  FaSearch, // 🔍 Buscador
-  FaHourglassHalf // ⏳ Contador regresivo
+  FaClock,
+  FaPalette,
+  FaSearch,
+  FaHourglassHalf 
 } from "react-icons/fa";
 
 interface SidebarItem {
@@ -34,7 +34,7 @@ const mainItems: SidebarItem[] = [
 const exerciseItems: SidebarItem[] = [
   { label: "Tablas de Multiplicar", route: "/tablasmul", icon: <FaCalculator /> },
   { label: "Conversor de Unidades", route: "/conversorunid", icon: <FaRuler /> },
-  { label: "Validadador de Contraseñas", route: "/validcontrasena", icon: <FaKey /> },
+  { label: "Validador de Contraseñas", route: "/validcontrasena", icon: <FaKey /> },
   { label: "Contador de Clics con Almacenamiento", route: "/contadorclics", icon: <FaMouse /> },
   { label: "Lista de Tareas", route: "/listareas", icon: <FaList /> },
   // 👇 Nuevos componentes agregados:

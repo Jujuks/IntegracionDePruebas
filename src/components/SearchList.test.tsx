@@ -48,7 +48,7 @@ describe("SearchList Component", () => {
 
     fireEvent.change(input, { target: { value: "xyz" } });
 
-    expect(screen.getByText("No encontrado")).toBeInTheDocument();
+    expect(screen.getByText("No se encontraron resultados")).toBeInTheDocument();
     expect(screen.queryByText("Ana")).not.toBeInTheDocument();
   });
 

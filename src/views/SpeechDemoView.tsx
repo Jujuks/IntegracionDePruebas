@@ -52,90 +52,100 @@ export default function SpeechDemoView() {
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Título */}
-      <h1 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100">
-        Text-to-Speech (Web Speech API)
-      </h1>
-
-      {/* Aviso soporte */}
-      <div className="text-sm text-slate-600 dark:text-slate-300">
-        Si no escuchas audio, prueba en Chrome/Edge y habilita sonido.
-      </div>
-
-      {/* Panel de controles */}
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Voz */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-              Voice
-            </label>
-            <select
-              className="mt-1 w-full rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-3 py-2"
-              value={selectedVoice}
-              onChange={(e) => setSelectedVoice(e.target.value)}
-            >
-              {voices.map((v) => (
-                <option key={v.name} value={v.name}>
-                  {v.name} ({v.lang})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Rate */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-              Rate
-            </label>
-            <input
-              type="range"
-              min="0.5"
-              max="2"
-              step="0.1"
-              value={rate}
-              onChange={(e) => setRate(Number(e.target.value))}
-              className="mt-2 w-full accent-emerald-500"
-            />
-          </div>
-
-          {/* Pitch */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-              Pitch
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="2"
-              step="0.1"
-              value={pitch}
-              onChange={(e) => setPitch(Number(e.target.value))}
-              className="mt-2 w-full accent-emerald-500"
-            />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="container mx-auto px-6 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Text-to-Speech
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Convierte texto a voz usando la Web Speech API
+          </p>
+          <div className="text-sm text-slate-500 mb-8">
+            Si no escuchas audio, prueba en Chrome/Edge y habilita sonido.
           </div>
         </div>
-      </div>
 
-      {/* Lista de ejemplos */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {examples.map((sentence) => (
-          <div
-            key={sentence}
-            className="flex items-center justify-between rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2"
-          >
-            <span className="text-slate-700 dark:text-slate-200">
-              {sentence}
-            </span>
-            <button
-              onClick={() => speak(sentence)}
-              className="px-3 py-1.5 rounded-lg bg-emerald-500 text-white hover:bg-emerald-400"
-            >
-              Play
-            </button>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {/* Panel de controles */}
+          <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-6">Controles de Voz</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Voz */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Voz
+                </label>
+                <select
+                  className="w-full rounded-lg border border-slate-300 bg-white text-slate-800 px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  value={selectedVoice}
+                  onChange={(e) => setSelectedVoice(e.target.value)}
+                >
+                  {voices.map((v) => (
+                    <option key={v.name} value={v.name}>
+                      {v.name} ({v.lang})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Rate */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Velocidad: {rate}x
+                </label>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="2"
+                  step="0.1"
+                  value={rate}
+                  onChange={(e) => setRate(Number(e.target.value))}
+                  className="w-full accent-blue-500"
+                />
+              </div>
+
+              {/* Pitch */}
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">
+                  Tono: {pitch}
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="2"
+                  step="0.1"
+                  value={pitch}
+                  onChange={(e) => setPitch(Number(e.target.value))}
+                  className="w-full accent-blue-500"
+                />
+              </div>
+            </div>
           </div>
-        ))}
+
+          {/* Lista de ejemplos */}
+          <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-6">Ejemplos de Texto</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {examples.map((sentence) => (
+                <div
+                  key={sentence}
+                  className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:bg-slate-100 transition-colors"
+                >
+                  <span className="text-slate-700 flex-1 mr-4">
+                    {sentence}
+                  </span>
+                  <button
+                    onClick={() => speak(sentence)}
+                    className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                  >
+                    🔊 Reproducir
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

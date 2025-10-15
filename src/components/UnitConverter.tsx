@@ -11,38 +11,42 @@ export default function UnitConverter() {
   };
 
   return (
-    <div className="h-full w-full p-6">
-      <h3 className="text-2xl font-bold mb-4">Conversor de Unidades</h3>
-      <img
-        src="/formula_celsius.jpg"
-        alt="Fórmula de conversión"
-        className="mb-4 w-48"
-      />
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
 
-      <div className="flex flex-col gap-4 max-w-sm">
-        <label className="flex flex-col">
-          <span className="mb-1 font-medium">Celsius (°C):</span>
+      <div className="flex justify-center mb-6">
+        <img
+          src="/formula_celsius.jpg"
+          alt="Fórmula de conversión"
+          className="w-48 h-auto rounded-lg shadow-md"
+        />
+      </div>
+
+      <div className="space-y-6">
+        <label className="block">
+          <span className="block text-sm font-medium text-slate-700 mb-2">Celsius (°C):</span>
           <input
             type="number"
-            className="border rounded-lg p-2"
+            className="w-full border border-slate-300 rounded-lg p-3 text-center focus:ring-2 focus:ring-green-500 focus:border-transparent"
             placeholder="Ingrese valor en Celsius"
             value={celsius ?? ""}
             onChange={(e) => setCelsius(parseFloat(e.target.value))}
           />
         </label>
 
-        <button
-          onClick={handleConvert}
-          className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
-        >
-          Convertir
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleConvert}
+            className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            Convertir
+          </button>
+        </div>
 
-        <label className="flex flex-col">
-          <span className="mb-1 font-medium">Fahrenheit (°F):</span>
+        <label className="block">
+          <span className="block text-sm font-medium text-slate-700 mb-2">Fahrenheit (°F):</span>
           <input
             type="text"
-            className="border rounded-lg p-2 bg-gray-100"
+            className="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 text-center font-medium text-slate-800"
             value={fahrenheit !== null ? fahrenheit.toFixed(2) : ""}
             readOnly
           />

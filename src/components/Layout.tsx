@@ -10,7 +10,7 @@ export default function Layout() {
       {/* Contenedor principal */}
       <div className="flex flex-col flex-1">
         {/* Contenido dinámico (cada vista) */}
-        <main className="flex-1 overflow-y-auto p-4 bg-slate-50">
+        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-slate-50 to-slate-100">
           <Outlet />
         </main>
       </div>

@@ -167,7 +167,7 @@ export default function HomeContent() {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-200">
+          <h3 className="text-2xl font-bold mb-6 text-black">
             🛠️ Tecnologías Utilizadas
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
