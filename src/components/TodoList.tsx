@@ -15,40 +15,44 @@ export default function TodoList() {
   };
 
   return (
-    <div className="h-full w-full p-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Lista de Tareas</h1>
+    <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-8">
 
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-3 mb-6">
         <input
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="Nueva tarea"
-          className="flex-1 border rounded-lg p-2"
+          className="flex-1 border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-green-500 focus:border-transparent"
         />
         <button
           onClick={handleAddTask}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
         >
           Agregar
         </button>
       </div>
 
-      <ul className="space-y-2">
+      <ul className="space-y-3">
         {tasks.map((task, index) => (
           <li
             key={index}
-            className="flex justify-between items-center bg-gray-100 p-2 rounded-lg"
+            className="flex justify-between items-center bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-slate-200 shadow-sm"
           >
-            <span>{task}</span>
+            <span className="font-medium text-slate-700">{task}</span>
             <button
               onClick={() => handleDeleteTask(index)}
-              className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
             >
               Eliminar
             </button>
           </li>
         ))}
+        {tasks.length === 0 && (
+          <div className="text-center py-8 text-slate-500">
+            <p>No hay tareas pendientes</p>
+          </div>
+        )}
       </ul>
     </div>
   );

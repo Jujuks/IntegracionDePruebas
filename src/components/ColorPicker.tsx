@@ -16,22 +16,21 @@ export default function ColorPicker() {
   };
 
   return (
-    <div className="h-full w-full p-6">
-      <h1 className="text-2xl font-bold mb-4">Selector de Colores</h1>
+    <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-8">
 
-      <div className="flex flex-col gap-4 max-w-sm">
-        <label className="flex flex-col">
-          <span className="mb-1 font-medium">Selecciona un color:</span>
+      <div className="space-y-6">
+        <label className="block">
+          <span className="block text-sm font-medium text-slate-700 mb-3">Selecciona un color:</span>
           <input
             type="color"
             value={color}
             onChange={(e) => handleColorChange(e.target.value)}
-            className="w-full h-12 border rounded-lg cursor-pointer"
+            className="w-full h-16 border-2 border-slate-300 rounded-lg cursor-pointer focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           />
         </label>
 
         <div
-          className="w-full h-32 border-2 border-gray-300 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+          className="w-full h-40 border-4 border-slate-300 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-inner"
           style={{ backgroundColor: color }}
         >
           {color.toUpperCase()}

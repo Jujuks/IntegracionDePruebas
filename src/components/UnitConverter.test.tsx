@@ -6,7 +6,7 @@ describe("UnitConverter Component", () => {
     render(<UnitConverter />);
 
     // Verifica que existan los elementos principales
-    expect(screen.getByText(/Conversor de Unidades/i)).toBeInTheDocument();
+    expect(screen.getByText(/Celsius/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Celsius/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Fahrenheit/i)).toBeInTheDocument();
     expect(

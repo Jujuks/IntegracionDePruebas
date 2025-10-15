@@ -19,7 +19,7 @@ export const DigitalClock = () => {
   }, []);
 
   return (
-    <div className="text-center text-3xl font-mono p-4 bg-gray-800 text-white rounded-xl shadow-md">
+    <div className="text-center text-5xl font-mono p-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white rounded-xl shadow-lg border-2 border-slate-700">
       {time}
     </div>
   );

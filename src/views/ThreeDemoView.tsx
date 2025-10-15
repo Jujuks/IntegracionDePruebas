@@ -88,41 +88,54 @@ export default function ThreeDemoView() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* Toolbar */}
-      <div className="flex items-center gap-2">
-        <button
-          onClick={() => setColor(0xff4d4f)}
-          className="px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:opacity-90 transition"
-        >
-          Rojo
-        </button>
-        <button
-          onClick={() => setColor(0x22c55e)}
-          className="px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:opacity-90 transition"
-        >
-          Verde
-        </button>
-        <button
-          onClick={() => setColor(0x3b82f6)}
-          className="px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:opacity-90 transition"
-        >
-          Azul
-        </button>
-        <button
-          onClick={setRandomColor}
-          className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800"
-        >
-          Random
-        </button>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="container mx-auto px-6 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Demo Three.js
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Interactúa con un cubo 3D animado usando Three.js
+          </p>
+        </div>
 
-      {/* Canvas container */}
-      <div
-        ref={stageRef}
-        className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm"
-        style={{ height: "420px", position: "relative" }}
-      />
+        <div className="max-w-4xl mx-auto">
+          {/* Toolbar */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <button
+              onClick={() => setColor(0xff4d4f)}
+              className="px-6 py-3 rounded-xl bg-red-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Rojo
+            </button>
+            <button
+              onClick={() => setColor(0x22c55e)}
+              className="px-6 py-3 rounded-xl bg-green-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Verde
+            </button>
+            <button
+              onClick={() => setColor(0x3b82f6)}
+              className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Azul
+            </button>
+            <button
+              onClick={setRandomColor}
+              className="px-6 py-3 rounded-xl border-2 border-slate-300 bg-white text-slate-700 font-semibold shadow-lg hover:shadow-xl hover:bg-slate-50 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              🎲 Color Aleatorio
+            </button>
+          </div>
+
+          {/* Canvas container */}
+          <div
+            ref={stageRef}
+            className="rounded-xl border border-slate-300 bg-white shadow-lg mx-auto"
+            style={{ height: "500px", position: "relative" }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

@@ -87,41 +87,51 @@ export default function GeometryExplorer() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-screen bg-gray-600 text-white">
-      <h1 className="text-2xl font-bold p-4">Explorador de Geometría 3D</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="container mx-auto px-6 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Explorador de Geometría 3D
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Interactúa con un cubo 3D usando Three.js
+          </p>
+        </div>
+        <div className="flex flex-col items-center">
+          {/* Contenedor Three.js */}
+          <div
+            ref={mountRef}
+            className="w-3/4 h-96 border-2 border-slate-300 rounded-lg shadow-lg mb-8"
+          />
 
-      {/* Contenedor Three.js */}
-      <div
-        ref={mountRef}
-        className="w-3/4 h-3/4 border-2 border-gray-700 rounded-lg shadow-lg"
-      />
-
-      {/* Controles */}
-      <div className="flex gap-4 p-4">
-        <button
-          onClick={() => setRotation(!rotation)}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg"
-        >
-          {rotation ? "Detener Rotación" : "Iniciar Rotación"}
-        </button>
-        <button
-          onClick={changeColor}
-          className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg"
-        >
-          Cambiar Color
-        </button>
-        <button
-          onClick={scaleUp}
-          className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 rounded-lg"
-        >
-          Aumentar Tamaño
-        </button>
-        <button
-          onClick={scaleDown}
-          className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg"
-        >
-          Disminuir Tamaño
-        </button>
+          {/* Controles */}
+          <div className="flex gap-4">
+            <button
+              onClick={() => setRotation(!rotation)}
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              {rotation ? "Detener Rotación" : "Iniciar Rotación"}
+            </button>
+            <button
+              onClick={changeColor}
+              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Cambiar Color
+            </button>
+            <button
+              onClick={scaleUp}
+              className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Aumentar Tamaño
+            </button>
+            <button
+              onClick={scaleDown}
+              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Disminuir Tamaño
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
